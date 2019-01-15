@@ -3,12 +3,10 @@ import fetch from '../utils/fetch'
 const login = (email, password) => {
   return fetch('POST', '/users/login', {email, password})
     .then(response => {
-      if(response.data.status === 'success') {
-        localStorage.setItem('authtoken', response.data.auth_token)
-      }
-      return response
+      localStorage.setItem('authtoken', response.data.auth_token)
+      return response.data
     })
-    .catch(error => console.log(error))
+    .catch(error => error.response.data)
 }
 
 const logout = () => {

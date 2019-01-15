@@ -5,6 +5,7 @@
   "homepage": ".",
   "dependencies": {
     "axios": "^0.18.0",
+    "bestzip": "^2.1.2",
     "moment": "^2.23.0",
     "react": "^16.8.0-alpha.0",
     "react-dom": "^16.8.0-alpha.0",
@@ -17,7 +18,8 @@
     "styled-system": "^3.2.0"
   },
   "scripts": {
-    "now-build": "npm run build && ",
+    "now-build": "npm run build && sh build-tv.sh && cd build && bestzip apps/MEDIACAST_0.1_America.zip *",
+    "deploy": "now && now alias",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

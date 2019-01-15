@@ -1,0 +1,8 @@
+{
+  "name": "Mediacast TV",
+  "version": 2,
+  "alias": "https://mediacasttv.now.sh",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" }}
+  ]
+}

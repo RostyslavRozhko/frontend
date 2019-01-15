@@ -15,8 +15,8 @@ const VideoPlayer = (props) => {
         width={900}
         height={506}
         playing 
-        controls 
       />
+      {/* <div style={{background: 'black', width: 900, height: 506}} /> */}
       <BottomButtons player={playerRef.current} />
     </Player.Container>
   )

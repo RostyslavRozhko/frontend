@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import colors from './colors'
 
 const List = styled.div`
@@ -25,6 +25,8 @@ const Time = styled(Text)`
 
 const Title = styled(Text)``
 
+const Play = styled.div``
+
 const Program = styled.div`
   display: flex;
   padding: 15px;
@@ -41,11 +43,18 @@ const Program = styled.div`
       color: ${colors.black}
     }
   }
+
+  ${props => props.current && css`
+    ${Text} {
+      color: ${colors.textBlue};
+    }
+  `}
 `
 
 Program.List = List
 Program.Container = Container
 Program.Time = Time
 Program.Title = Title
+Program.Play = Play
 
 export default Program

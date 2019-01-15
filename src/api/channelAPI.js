@@ -16,14 +16,9 @@ const getLiveUrl = (channelId) => {
   return fetch('GET', `/channels/live/${channelId}`)
 }
 
-const getProgramListByChannel = (channelId) => {
-  return fetch('GET', `/programs/all/${channelId}`)
-}
-
 export default {
   getCategories,
   getAllChannels,
   getFavoritesChannels,
-  getLiveUrl,
-  getProgramListByChannel,
+  getLiveUrl
 }
