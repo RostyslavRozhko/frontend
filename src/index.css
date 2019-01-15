@@ -6,9 +6,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #051E38;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fira Sans'), local('FiraSans'),
+       url('./fonts/FiraSans-Regular.ttf') format('truetype')
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+body > #root {
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@-moz-document url-prefix() {
+  html, body {
+    overflow-x: hidden !important;
+  }
 }
