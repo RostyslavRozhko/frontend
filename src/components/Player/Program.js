@@ -6,12 +6,12 @@ import ProgramStyles from '../../styles/Program'
 
 const Program = (props) => {
   const { program } = props
-
+  
   return (
     <>
       {
         program.status === "after" && 
-        <ProgramStyles>
+        <ProgramStyles after={true}>
           <ProgramStyles.Time>{moment(program.start).format('HH:MM')}</ProgramStyles.Time>
           <ProgramStyles.Title>{program.title}</ProgramStyles.Title>
         </ProgramStyles>
@@ -28,7 +28,7 @@ const Program = (props) => {
       }
       {
         program.status === "current" &&
-        <FocusItem>
+        <FocusItem forceFocus={true}>
           <ProgramStyles current={true}>
             <ProgramStyles.Time>{moment(program.start).format('HH:MM')}</ProgramStyles.Time>
             <ProgramStyles.Title>{program.title}</ProgramStyles.Title>

@@ -1,24 +1,15 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 
-import Player from '../../styles/Player'
-import BottomButtons from './BottomButtons'
-
 const VideoPlayer = (props) => {
-  const playerRef = useRef(null)
-
   return (
-    <Player.Container>
-      <ReactPlayer
-        ref={playerRef}
-        url={props.url}
-        width={900}
-        height={506}
-        playing 
-      />
-      {/* <div style={{background: 'black', width: 900, height: 506}} /> */}
-      <BottomButtons player={playerRef.current} />
-    </Player.Container>
+    <ReactPlayer
+      url={props.url}
+      width="100%"
+      height="auto"
+      playing 
+      controls
+    />
   )
 }
 

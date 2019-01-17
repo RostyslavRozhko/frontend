@@ -9,7 +9,7 @@ import Layout from '../../styles/Layout'
 const { Flex } = Layout
 
 const Dashboard = () => {
-  const [contentType, setContent] = useState('channels')
+  const [contentType, setContent] = useState('profile')
 
   let content
 

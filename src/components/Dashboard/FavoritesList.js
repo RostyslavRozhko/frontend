@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import channelAPI from '../../api/channelAPI'
 import FocusItem from '../FocusItem'
 import config from '../../config'
+import { withRouter } from 'react-router-dom'
 
 import { Grid } from '../../react-keys'
 
@@ -10,7 +11,7 @@ import Text from '../../styles/Text'
 
 const { H1 } = Text
 
-const FavoritesList = () => {
+const FavoritesList = (props) => {
   const imageWidth = 300
   const containerRef = useRef(null)
 
@@ -35,9 +36,13 @@ const FavoritesList = () => {
   }
 
   const getChannels = async () => {
-    const channels = await channelAPI.getFavoritesChannels().then(response => response.data.favorites)
+    const channels = await channelAPI.getFavoritesChannels()
     
     setChannels(channels)
+  }
+
+  const handleClick = (channelId) => {
+    props.history.push(`/dashboard/${channelId}`)
   }
 
   return (
@@ -47,7 +52,7 @@ const FavoritesList = () => {
         <Grid rows={dimensions.rows} columns={dimensions.columns} rowHeight="270px" >
           {channels.map((channel, i) => 
             <FocusItem key={i}>
-              <Channel>
+              <Channel onClick={() => handleClick(channel.ch_id)}>
                 <Channel.Image width={imageWidth} src={`${config.api.url}/${channel.logo}`} />
                 <Channel.Name>{channel.name}</Channel.Name>
               </Channel>
@@ -59,4 +64,4 @@ const FavoritesList = () => {
   )
 }
 
-export default FavoritesList
+export default withRouter(FavoritesList)

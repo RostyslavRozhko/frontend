@@ -26,7 +26,7 @@ const FocusItem = (props) => {
   }
 
   return (
-    <Focusable onFocus={setFocus} onBlur={setBlur} onEnterDown={handleClick} >
+    <Focusable onFocus={setFocus} onBlur={setBlur} onEnterDown={handleClick} {...props} >
       <span ref={focusEl}>{props.children}</span>
     </Focusable>
   )

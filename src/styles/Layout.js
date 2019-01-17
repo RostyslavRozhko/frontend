@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, display, alignItems, alignContent, justifyContent, flexWrap, flexDirection, flex, height } from 'styled-system'
+import { space, width, display, alignItems, alignContent, justifyContent, flexWrap, flexDirection, flex, height, textAlign } from 'styled-system'
 
 const Flex = styled.div`
   display: flex;
@@ -9,7 +9,9 @@ const Flex = styled.div`
   ${flexWrap};
   ${flexDirection};
   ${height};
-  ${space}
+  ${space};
+  ${width};
+  ${textAlign};
 `
 
 const Box = styled.div`

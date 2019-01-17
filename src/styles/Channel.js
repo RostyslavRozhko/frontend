@@ -15,7 +15,7 @@ const Grid = styled.div`
 const Category = styled.div`
   display: flex;
   align-items: center;
-  height: 270px;
+  height: 275px;
   overflow: scroll;
 `
 

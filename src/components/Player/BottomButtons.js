@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { HorizontalList } from '../../react-keys'
 import FocusItem from '../FocusItem'
 
@@ -8,12 +8,6 @@ import Button from '../../styles/Button'
 const { Flex } = Layout
 
 const BottomButtons = (props) => {
-  const fullscreenButtonRef = useRef(null)
-
-  useEffect(() => {
-    fullscreenButtonRef.current.focus()
-  }, {})
-
   const handleFullscreen = () => {
     const player = props.player.getInternalPlayer()
     if(typeof player.requestFullscreen !== "undefined") {
@@ -27,13 +21,13 @@ const BottomButtons = (props) => {
     <Flex alignItems="center" justifyContent="center" mt="40px">
       <HorizontalList>
         <FocusItem>
-          <Button.PlayerButton ref={fullscreenButtonRef} onClick={handleFullscreen}>📺</Button.PlayerButton>
+          <Button.PlayerButton>📺</Button.PlayerButton>
         </FocusItem>
         <FocusItem>
-          <Button.PlayerButton>📅</Button.PlayerButton>
+          <Button.PlayerButton onClick={() => props.handleProgramList()}>📅</Button.PlayerButton>
         </FocusItem>
         <FocusItem>
-          <Button.PlayerButton>❤️</Button.PlayerButton>
+          <Button.PlayerButton onClick={() => props.handleFavorite()}>{props.isFavorite ? "❤️" : "💔"}</Button.PlayerButton>
         </FocusItem>
       </HorizontalList>
     </Flex>

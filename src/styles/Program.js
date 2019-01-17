@@ -12,6 +12,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 50px 0;
+
+  ${props => !props.show && css`
+    display: none;
+  `}
 `
 
 const Text = styled.div`
@@ -26,6 +30,14 @@ const Time = styled(Text)`
 const Title = styled(Text)``
 
 const Play = styled.div``
+
+const Header = styled.div`
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom, ${colors.lightGrey}, ${colors.lightGrey});
+  padding: 15px;
+  font-size: 24px;
+  color: ${colors.black};
+`
 
 const Program = styled.div`
   display: flex;
@@ -49,6 +61,12 @@ const Program = styled.div`
       color: ${colors.textBlue};
     }
   `}
+
+  ${props => props.after && css`
+    ${Text} {
+      color: ${colors.opacityFontColor};
+    }
+  `}
 `
 
 Program.List = List
@@ -56,5 +74,6 @@ Program.Container = Container
 Program.Time = Time
 Program.Title = Title
 Program.Play = Play
+Program.Header = Header
 
 export default Program

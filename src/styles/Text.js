@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import colors from './colors'
-import { space } from 'styled-system'
+import { space, fontWeight } from 'styled-system'
 
 
 const H1 = styled.h1`
@@ -12,7 +12,7 @@ const H1 = styled.h1`
   ${space}
 `
 
-const H2 = styled.h1`
+const H2 = styled.h2`
   font-size: 28px;
   color: ${colors.opacityFontColor};
   font-weight: normal;
@@ -21,9 +21,22 @@ const H2 = styled.h1`
   ${space}
 `
 
-const Text = {
-  H1,
-  H2
-}
+const Text = styled.div`
+  ${props => props.primary && css`
+    color: ${colors.white};
+    font-size: 28px;
+  `}
+
+  ${props => props.sub && css`
+    color: ${colors.white};
+    font-size: 22px;
+    opacity: 0.7;
+  `}
+
+  ${fontWeight};
+`
+
+Text.H1 = H1
+Text.H2 = H2
 
 export default Text

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { HorizontalList } from '../../react-keys'
 import FocusItem from '../FocusItem'
 import config from '../../config'
-import { Link } from 'react-router-dom'
 import { withRouter } from "react-router";
 
 import Channel from '../../styles/Channel'
@@ -47,10 +46,11 @@ const CategoryList = (props) => {
       <Channel.Category ref={containerRef} >
         <HorizontalList style={{width, display: 'flex', alignItems: 'center'}} 
           onFocus={(index) => onFocus(index)}
-          onBlur={() => setLastFocus(0)} >
+          onBlur={() => setLastFocus(0)}
+          retainLastFocus={true} >
           { props.items.map((channel, i) => 
             <FocusItem key={i} >
-              <Channel onClick={() => handleClick(channel._id)}>
+              <Channel onClick={() => handleClick(channel.ch_id)}>
                 <Channel.Image width={imageWidth} src={`${config.api.url}/${channel.logo}`} />
                 <Channel.Name>{channel.name}</Channel.Name>
               </Channel>
