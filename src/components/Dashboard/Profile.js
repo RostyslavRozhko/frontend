@@ -69,20 +69,22 @@ const Profile = (props) => {
           </ProfileStyles.Box>
         </Flex>
         <ProfileStyles.Box mt="100px">
-          <Flex flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
-            <FocusItem style={{width: '100%'}}>
-              <Button>Change timezone</Button>
-            </FocusItem>
-            <FocusItem style={{width: '100%'}}>
-              <Button>Customer Agreement</Button>
-            </FocusItem>
-            <FocusItem style={{width: '100%'}}>
-              <Button>Privacy Policy</Button>
-            </FocusItem>
-            <FocusItem style={{width: '100%'}}>
-              <Button onClick={logout}>Logout</Button>
-            </FocusItem>
-          </Flex>
+          <VerticalList>
+            <Flex flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
+              <FocusItem style={{width: '100%'}}>
+                <Button>Change timezone</Button>
+              </FocusItem>
+              <FocusItem style={{width: '100%'}}>
+                <Button>Customer Agreement</Button>
+              </FocusItem>
+              <FocusItem style={{width: '100%'}}>
+                <Button>Privacy Policy</Button>
+              </FocusItem>
+              <FocusItem style={{width: '100%'}}>
+                <Button onClick={logout}>Logout</Button>
+              </FocusItem>
+            </Flex>
+          </VerticalList>
         </ProfileStyles.Box>
       </ProfileStyles.Box>
     </ProfileStyles.Container>

@@ -7,6 +7,14 @@ const getProgramListByChannel = (channelId) => {
     .catch(error => error.response.data)
 }
 
+const getProgramLiveUrl = (programId) => {
+  return fetch('GET', `/programs/${programId}`)
+    .then(response => response.data)
+    .then(data => data.url)
+    .catch(error => error.response.data)
+}
+
 export default {
   getProgramListByChannel,
+  getProgramLiveUrl,
 }

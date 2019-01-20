@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import colors from './colors'
-import { space, fontWeight } from 'styled-system'
+import { space, fontWeight, fontSize } from 'styled-system'
 
 
 const H1 = styled.h1`
@@ -9,7 +9,8 @@ const H1 = styled.h1`
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 50px;
-  ${space}
+  ${space};
+  ${fontSize};
 `
 
 const H2 = styled.h2`
@@ -19,6 +20,7 @@ const H2 = styled.h2`
   margin-top: 0;
   margin-bottom: 20px;
   ${space}
+  ${fontSize};
 `
 
 const Text = styled.div`
@@ -34,6 +36,8 @@ const Text = styled.div`
   `}
 
   ${fontWeight};
+  ${fontSize};
+  ${space};
 `
 
 Text.H1 = H1

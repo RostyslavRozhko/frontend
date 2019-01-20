@@ -15,8 +15,9 @@ import Layout from '../../styles/Layout'
 const { Flex } = Layout
 
 const Player = (props) => {
-  const [channelLiveUrl, setChannelLiveUrl] = useState('')
+  const [liveUrl, setLiveUrl] = useState('')
   const [channel, setChannel] = useState({})
+  const [title, setTitle] = useState('')
   const [showProgramList, changeProgramListShow] = useState(true)
   const [programs, setPrograms] = useState({})
   const [loading, stopLoading] = useState(true)
@@ -27,8 +28,8 @@ const Player = (props) => {
 
   const loadData = async () => {
     const channel = await getChannel()
-    await getLiveUrl(channel._id)
-    await getProgramsList(channel._id)
+    await getChannelLiveUrl(channel)
+    await getProgramsList(channel)
 
     stopLoading(false)
   }
@@ -41,13 +42,22 @@ const Player = (props) => {
     return channel
   }
 
-  const getLiveUrl = async (channelId) => {
-    const channelLiveUrl = await channelAPI.getLiveUrl(channelId)
-    setChannelLiveUrl(channelLiveUrl)
+  const getChannelLiveUrl = async (channel) => {
+    setTitle(channel.name)
+
+    const channelLiveUrl = await channelAPI.getLiveUrl(channel._id)
+    setLiveUrl(channelLiveUrl)
   }
 
-  const getProgramsList = async (channelId) => {
-    const programs = await programAPI.getProgramListByChannel(channelId)
+  const getProgramLiveUrl = async (program) => {
+    setTitle(program.title)
+
+    const programLiveUrl = await programAPI.getProgramLiveUrl(program._id)
+    setLiveUrl(programLiveUrl)
+  }
+
+  const getProgramsList = async (channel) => {
+    const programs = await programAPI.getProgramListByChannel(channel._id)
 
     let channelsWithDate = {}
     programs.map(program => {
@@ -85,9 +95,9 @@ const Player = (props) => {
       <Navigation>
         <HorizontalList height="100%">
           <Flex pl="50px" pr="50px" height="100%" width="100%" justifyContent="center" style={{opacity: loading ? 0 : 1}}>
-            <ProgramList show={showProgramList} channelId={channel._id} channelName={channel.name} programs={programs} />
+            <ProgramList show={showProgramList} channelId={channel._id} channelName={title} programs={programs} getProgramLiveUrl={getProgramLiveUrl} getChannelLiveUrl={() => getChannelLiveUrl(channel)} />
             <PlayerStyles.Container>
-              <VideoPlayer url={channelLiveUrl} />
+              <VideoPlayer url={liveUrl} />
               <BottomButtons handleProgramList={handleProgramList} isFavorite={channel.isFavorite} handleFavorite={handleFavorite} />
             </PlayerStyles.Container>
           </Flex>

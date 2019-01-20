@@ -22,18 +22,15 @@ const FavoritesList = (props) => {
     getChannels()
   }, {})
 
-  const getDimensions = () => {
-    const screenWidth = containerRef.current.clientWidth
-    const countChannels = channels.length || 1
+  // const getDimensions = () => {
+  //   const screenWidth = containerRef.current.clientWidth
+  //   const countChannels = channels.length || 1
 
-    console.log(countChannels)
+  //   const rows = Math.floor(screenWidth / countChannels)
+  //   const columns = Math.floor(countChannels / rows)
 
-    const rows = Math.floor(screenWidth / countChannels)
-    const columns = Math.floor(countChannels / rows)
-
-    console.log(rows, columns)
-    setDimensions({rows, columns})
-  }
+  //   setDimensions({rows, columns})
+  // }
 
   const getChannels = async () => {
     const channels = await channelAPI.getFavoritesChannels()

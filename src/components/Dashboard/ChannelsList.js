@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import BannerList from './BannerList'
+// import BannerList from './BannerList'
 import channelAPI from '../../api/channelAPI'
 import CategoryList from './CategoryList'
 

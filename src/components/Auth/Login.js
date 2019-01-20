@@ -18,9 +18,7 @@ const Login = (props) => {
 
   const handleSubmit = async () => {
     const {email, password} = formState.values
-    const response = await userApi.login(email, password)
-      .then(response => console.log(response))
-      .catch(error => console.log(error))
+    await userApi.login(email, password)
     props.history.push('/dashboard')
   }
 
