@@ -30,8 +30,6 @@ const Player = (props) => {
     const channel = await getChannel()
     await getChannelLiveUrl(channel)
     await getProgramsList(channel)
-
-    stopLoading(false)
   }
 
   const getChannel = async () => {
@@ -96,10 +94,10 @@ const Player = (props) => {
         <HorizontalList height="100%">
           <Flex pl="50px" pr="50px" height="100%" width="100%" justifyContent="center" style={{opacity: loading ? 0 : 1}}>
             <ProgramList show={showProgramList} channelId={channel._id} channelName={title} programs={programs} getProgramLiveUrl={getProgramLiveUrl} getChannelLiveUrl={() => getChannelLiveUrl(channel)} />
-            <PlayerStyles.Container>
-              <VideoPlayer url={liveUrl} />
+            <Flex flexDirection="column" justifyContent="center">
+              <VideoPlayer url={liveUrl} stopLoading={() => stopLoading(false)}/>
               <BottomButtons handleProgramList={handleProgramList} isFavorite={channel.isFavorite} handleFavorite={handleFavorite} />
-            </PlayerStyles.Container>
+            </Flex>
           </Flex>
         </HorizontalList>
       </Navigation>

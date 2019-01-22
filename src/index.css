@@ -42,3 +42,15 @@ body > #root {
     overflow-x: hidden !important;
   }
 }
+
+video::-webkit-media-controls {
+  display:none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
