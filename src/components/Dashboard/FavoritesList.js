@@ -20,21 +20,27 @@ const FavoritesList = (props) => {
 
   useEffect(() => {
     getChannels()
+    // window.addEventListener("resize", (e) => getDimensions(null, e))
+    // return () => {
+    //   window.removeEventListener("resize", () => getDimensions())
+    // }
   }, {})
 
-  // const getDimensions = () => {
-  //   const screenWidth = containerRef.current.clientWidth
-  //   const countChannels = channels.length || 1
+  const getDimensions = (countChannels) => {
+    const screenWidth = containerRef.current.clientWidth
 
-  //   const rows = Math.floor(screenWidth / countChannels)
-  //   const columns = Math.floor(countChannels / rows)
+    const count = countChannels ? countChannels : channels.length
 
-  //   setDimensions({rows, columns})
-  // }
+    const columns = Math.floor(screenWidth / (imageWidth + 50))
+    const rows = Math.ceil(count / columns)
+
+    setDimensions({rows, columns})
+  }
 
   const getChannels = async () => {
     const channels = await channelAPI.getFavoritesChannels()
     
+    getDimensions(channels.length)
     setChannels(channels)
   }
 

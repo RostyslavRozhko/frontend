@@ -6,7 +6,6 @@ const login = (email, password) => {
       localStorage.setItem('authtoken', response.data.auth_token)
       return response.data
     })
-    .catch(error => error.response.data)
 }
 
 const logout = () => {

@@ -5,7 +5,6 @@ const VideoPlayer = (props) => {
   const player = useRef(null)
 
   const onDuration = (value) => {
-    console.log(value)
     
   }
 
@@ -16,7 +15,7 @@ const VideoPlayer = (props) => {
       url={props.url}
       width="100%"
       height="auto"
-      // playing 
+      playing 
       controls
     />
   )

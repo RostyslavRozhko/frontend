@@ -138,8 +138,8 @@ class Focusable extends Component {
   }
 
   render() {
-    const { focusId, navDefault, onFocus, onBlur, onEnterDown, rootNode, forceFocus, retainLastFocus, focusableId, ...props } = this.props;
-    return <span {...props} />
+    const { focusId, navDefault, onFocus, onBlur, onEnterDown, rootNode, forceFocus, retainLastFocus, focusableId, width, ...props } = this.props;
+    return <span style={{width}} {...props} />
   }
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import colors from './colors'
-import { space, alignItems, flexDirection } from 'styled-system'
+import { space, alignItems, flexDirection, flex } from 'styled-system'
 
 const Profile = styled.div``
 
@@ -28,6 +28,7 @@ const Box = styled.div`
   text-align: center;
   ${space};
   ${alignItems};
+  ${flex};
 `
 
 Profile.Container = Container

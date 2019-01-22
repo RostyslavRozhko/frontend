@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import ModalProvider from './components/Modal/ModalProvider'
 import PrivateRoute from './components/PrivateRoute'
 import Dashboard from './components/Dashboard/index'
 import Join from './components/Join/index'
@@ -16,23 +17,25 @@ import Player from './components/Player'
 const loggedIn = localStorage.authtoken ? true : false
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" render={() => (
-        loggedIn 
-          ? <Redirect to="/dashboard" />
-          : <Redirect to="/login" />
-      )} />
-      <Route path="/login" render={() => (
-        loggedIn 
-          ? <Redirect to="/dashboard" />
-          : <Login />
-      )} />
-      <PrivateRoute path="/dashboard/:id" component={Player} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
-      <PrivateRoute path="/join" component={Join} />
-    </Switch>
-  </BrowserRouter>, 
+  <ModalProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" render={() => (
+          loggedIn 
+            ? <Redirect to="/dashboard" />
+            : <Redirect to="/login" />
+        )} />
+        <Route path="/login" render={() => (
+          loggedIn 
+            ? <Redirect to="/dashboard" />
+            : <Login />
+        )} />
+        <PrivateRoute path="/dashboard/:id" component={Player} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/join" component={Join} />
+      </Switch>
+    </BrowserRouter>
+  </ModalProvider>,
   document.getElementById('root')
 )
 

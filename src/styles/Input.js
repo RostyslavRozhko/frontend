@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import colors from './colors'
-import { space } from 'styled-system'
+import { space, width, height } from 'styled-system'
 
 const Input = styled.input`
   height: 60px;
@@ -26,7 +26,6 @@ const Input = styled.input`
 
 const Button = styled.button`
   height: 60px;
-  min-width: 500px;
   border-radius: 10px;
   background-color: ${colors.opacityWhiteDarker};
   padding: 0 30px;
@@ -35,7 +34,9 @@ const Button = styled.button`
   border: none;
   font-weight: bold;
   user-select: none;
-  ${space}
+  ${space};
+  ${width};
+  ${height};
 
   &:focus, &:hover {
     background-color: ${colors.blue};

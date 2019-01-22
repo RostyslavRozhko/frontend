@@ -12,6 +12,7 @@ const Flex = styled.div`
   ${space};
   ${width};
   ${textAlign};
+  ${flex};
 `
 
 const Box = styled.div`

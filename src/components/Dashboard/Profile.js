@@ -28,18 +28,17 @@ const Profile = (props) => {
 
   const getPlan = async () => {
     const plan = await userAPI.getPlan()
-    console.log(plan)
     setPlan(plan)
   }
 
   const logout = async () => {
-    userAPI.logout()
-      .then(response => props.history.push('/'))
+    await userAPI.logout()
+    props.history.push('/')
   }
 
   return (
     <ProfileStyles.Container>
-      <Flex flexDirection="column" alignItems="center">
+      <Flex flexDirection="column" alignItems="center" flex="2">
         <ProfileStyles.Image />
         <ProfileStyles.Box mt="50px;">
           <Text primary>{`${user.name} ${user.lastname}`}</Text>
@@ -51,7 +50,7 @@ const Profile = (props) => {
           <Text sub>(888) 720-0928</Text>
         </Flex>
       </Flex>
-      <ProfileStyles.Box>
+      <Flex flexDirection="column" alignItems="center" flex="3">
         <Flex flexDirection="row">
           <Flex flexDirection="column" alignItems="flex-end">
             <Text primary>Current plan:</Text>
@@ -68,25 +67,25 @@ const Profile = (props) => {
             <Text primary fontWeight="bold">{moment(plan.end).diff(moment(), 'days')}</Text>
           </ProfileStyles.Box>
         </Flex>
-        <ProfileStyles.Box mt="100px">
-          <VerticalList>
-            <Flex flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
-              <FocusItem style={{width: '100%'}}>
+        <Flex flexDirection="column" mt="100px" width="100%">
+          <VerticalList width="100%">
+            <Flex flexDirection="column" textAlign="center">
+              <FocusItem>
                 <Button>Change timezone</Button>
               </FocusItem>
-              <FocusItem style={{width: '100%'}}>
+              <FocusItem>
                 <Button>Customer Agreement</Button>
               </FocusItem>
-              <FocusItem style={{width: '100%'}}>
+              <FocusItem>
                 <Button>Privacy Policy</Button>
               </FocusItem>
-              <FocusItem style={{width: '100%'}}>
+              <FocusItem>
                 <Button onClick={logout}>Logout</Button>
               </FocusItem>
             </Flex>
           </VerticalList>
-        </ProfileStyles.Box>
-      </ProfileStyles.Box>
+        </Flex>
+      </Flex>
     </ProfileStyles.Container>
   )
 }

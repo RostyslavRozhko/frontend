@@ -9,11 +9,9 @@ const Button = styled.button`
   color: ${colors.white};
   font-size: 28px;
   border: none;
-  width: 100%;
   margin: 10px;
   cursor: pointer;
-  width: 93%;
-  min-width: 700px;
+  width: 95%;
 
   &:focus, &:hover {
     color: ${colors.black};
