@@ -7,11 +7,14 @@
     "@babel/core": "7.1.6",
     "@svgr/webpack": "2.4.1",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
     "babel-plugin-named-asset-import": "^0.3.0",
+    "babel-plugin-react-intl": "^3.0.1",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-react-app": "^7.0.0",
     "bestzip": "^2.1.2",
     "bfj": "6.1.1",
@@ -48,6 +51,7 @@
     "react-dev-utils": "^7.0.1",
     "react-dom": "^16.8.0-alpha.0",
     "react-intl": "^2.8.0",
+    "react-keyboard-event-handler": "^1.4.1",
     "react-modal": "^3.8.1",
     "react-player": "^1.8.0",
     "react-router-dom": "^4.3.1",
@@ -70,10 +74,9 @@
   },
   "scripts": {
     "now-build": "npm run build",
-    "zip": "cd build && bestzip apps/MEDIACAST_0.1_America.zip *",
     "deploy-now": "now && now alias",
     "start": "serve ./build --single",
-    "deploy-vultr": "scp -r build/* root@199.247.26.101:/var/www/html",
+    "extract-messages": "NODE_ENV=production babel ./src  --out-file /dev/null",
     "dev": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
@@ -87,11 +90,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "babel-plugin-react-intl": "^3.0.1",
-    "babel-preset-react-app": "^7.0.0",
-    "babel-plugin-styled-components": "^1.10.0"
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -136,6 +134,9 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "babel-plugin-styled-components"
     ]
   }
 }

@@ -8,15 +8,6 @@ import Button from '../../styles/Button'
 const { Flex } = Layout
 
 const BottomButtons = (props) => {
-  // const handleFullscreen = () => {
-  //   const player = props.player.getInternalPlayer()
-  //   if(typeof player.requestFullscreen !== "undefined") {
-  //     player.requestFullscreen()
-  //   } else {
-  //     player.webkitIsFullScreen()
-  //   }
-  // }
-
   return (
     <Flex alignItems="center" justifyContent="center" mt="40px">
       <HorizontalList>

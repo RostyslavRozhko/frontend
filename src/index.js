@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import ModalProvider from './components/Modal/ModalProvider'
+import Navigation from './react-keys'
 import PrivateRoute from './components/PrivateRoute'
 import Dashboard from './components/Dashboard/index'
 import Join from './components/Join/index'
@@ -27,31 +28,34 @@ const messages = {
 
 addLocaleData([...locale_en, ...locale_uk])
 
-const language = navigator.language.split(/[-_]/)[0]
+// const language = navigator.language.split(/[-_]/)[0]
+const language = 'en'
 
 const loggedIn = localStorage.authtoken ? true : false
 
 ReactDOM.render(
   <IntlProvider locale={language} messages={messages[language]}>
-    <ModalProvider>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" render={() => (
-            loggedIn 
-              ? <Redirect to="/dashboard" />
-              : <Redirect to="/login" />
-          )} />
-          <Route path="/login" render={() => (
-            loggedIn 
-              ? <Redirect to="/dashboard" />
-              : <Login />
-          )} />
-          <PrivateRoute path="/dashboard/:id" component={Player} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute path="/join" component={Join} />
-        </Switch>
-      </BrowserRouter>
-    </ModalProvider>
+    <Navigation>
+      <ModalProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" render={() => (
+              loggedIn 
+                ? <Redirect to="/dashboard" />
+                : <Redirect to="/login" />
+            )} />
+            <Route path="/login" render={() => (
+              loggedIn 
+                ? <Redirect to="/dashboard" />
+                : <Login />
+            )} />
+            <PrivateRoute path="/dashboard/:id" component={Player} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/join" component={Join} />
+          </Switch>
+        </BrowserRouter>
+      </ModalProvider>
+    </Navigation>
   </IntlProvider>,
   document.getElementById('root')
 )

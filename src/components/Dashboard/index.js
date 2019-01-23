@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Navigation, { VerticalList } from '../../react-keys'
+import { VerticalList } from '../../react-keys'
 import Header from './Header'
 import ChannelsList from './ChannelsList'
 import FavoritesList from './FavoritesList'

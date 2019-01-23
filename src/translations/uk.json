@@ -1,3 +1,5 @@
 {
-  
+  "auth.login": "Увійти",
+  "auth.youtEmail": "Ваш email",
+  "auth.youtPassword": "Ваш пароль"
 }

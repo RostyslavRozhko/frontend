@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import channelAPI from '../../api/channelAPI'
 import programAPI from '../../api/programAPI'
-import Navigation from '../../react-keys'
 import { HorizontalList } from '../../react-keys'
 import Loader from '../Loader'
 import BottomButtons from './BottomButtons'
@@ -9,9 +8,7 @@ import BottomButtons from './BottomButtons'
 import VideoPlayer from './VideoPlayer'
 import ProgramList from './ProgramList'
 
-import PlayerStyles from '../../styles/Player'
 import Layout from '../../styles/Layout'
-
 const { Flex } = Layout
 
 const Player = (props) => {
@@ -90,17 +87,15 @@ const Player = (props) => {
   return (
     <>
       {loading && <Loader />}
-      <Navigation>
-        <HorizontalList height="100%">
-          <Flex pl="50px" pr="50px" height="100%" width="100%" justifyContent="center" style={{opacity: loading ? 0 : 1}}>
-            <ProgramList show={showProgramList} channelId={channel._id} channelName={title} programs={programs} getProgramLiveUrl={getProgramLiveUrl} getChannelLiveUrl={() => getChannelLiveUrl(channel)} />
-            <Flex flexDirection="column" justifyContent="center">
-              <VideoPlayer url={liveUrl} stopLoading={() => stopLoading(false)}/>
-              <BottomButtons handleProgramList={handleProgramList} isFavorite={channel.isFavorite} handleFavorite={handleFavorite} />
-            </Flex>
+      <HorizontalList height="100%">
+        <Flex pl="50px" pr="50px" height="100%" width="100%" justifyContent="center" style={{opacity: loading ? 0 : 1}}>
+          <ProgramList show={showProgramList} channelId={channel._id} channelName={title} programs={programs} getProgramLiveUrl={getProgramLiveUrl} getChannelLiveUrl={() => getChannelLiveUrl(channel)} />
+          <Flex flexDirection="column" justifyContent="center">
+            <VideoPlayer url={liveUrl} stopLoading={() => stopLoading(false)}/>
+            <BottomButtons handleProgramList={handleProgramList} isFavorite={channel.isFavorite} handleFavorite={handleFavorite} />
           </Flex>
-        </HorizontalList>
-      </Navigation>
+        </Flex>
+      </HorizontalList>
     </>
   )
 }

@@ -1,3 +1,8 @@
 {
-  
+  "auth.signin": "Sign in",
+  "auth.youtEmail": "Your Email",
+  "auth.youtPassword": "Your Password",
+  "auth.signInWith": "Sign in with exising account",
+  "auth.fillTheDataBelow": "Fill the data below",
+  "auth.forgotPassword": "Forgot Password?"
 }

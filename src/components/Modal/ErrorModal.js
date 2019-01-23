@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactModal from "react-modal"
-import Navigation from '../../react-keys'
 import FocusItem from '../FocusItem'
 import Modal from '../../styles/Modal'
 import Layout from '../../styles/Layout'
@@ -31,15 +30,13 @@ const ErrorModal = (props) => {
       // overlayClassName={Modal.Overlay.styledComponentId} 
       // className={Modal.styledComponentId}
     >
-      <Navigation>
-        <Flex flexDirection="column" justifyContent="center" alignItems="center" height="100%" p="0 50px">
-          <Modal.Title>{props.title}</Modal.Title>
-          <Modal.Body>{props.body}</Modal.Body>
-          <FocusItem forceFocus={true}>
-            <Button onClick={props.hide}>{props.button}</Button>
-          </FocusItem>
-        </Flex>
-      </Navigation>
+      <Flex flexDirection="column" justifyContent="center" alignItems="center" height="100%" p="0 50px">
+        <Modal.Title>{props.title}</Modal.Title>
+        <Modal.Body>{props.body}</Modal.Body>
+        <FocusItem forceFocus={true}>
+          <Button onClick={props.hide}>{props.button}</Button>
+        </FocusItem>
+      </Flex>
     </ReactModal>
   )
 }
