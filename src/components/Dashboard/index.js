@@ -28,14 +28,12 @@ const Dashboard = () => {
   }
 
   return (
-    <Navigation>
-      <Flex flexDirection="column" >
-        <VerticalList >
-          <Header setContent={setContent} />
-          {content}
-        </VerticalList>
-      </Flex>
-    </Navigation>
+    <Flex flexDirection="column" >
+      <VerticalList >
+        <Header setContent={setContent} />
+        {content}
+      </VerticalList>
+    </Flex>
   )
 }
 

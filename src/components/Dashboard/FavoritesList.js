@@ -9,7 +9,7 @@ import { Grid } from '../../react-keys'
 import Channel from '../../styles/Channel'
 import Text from '../../styles/Text'
 
-const { H1 } = Text
+const { H2 } = Text
 
 const FavoritesList = (props) => {
   const imageWidth = 300
@@ -50,7 +50,7 @@ const FavoritesList = (props) => {
 
   return (
     <Channel.Container ref={containerRef}>
-      <H1 mt="50px" mb="30px">Favorite Channels</H1>
+      <H2 fontSize="28px" mt="20px" mb="30px">Favorite Channels</H2>
       <Channel.Grid>
         <Grid rows={dimensions.rows} columns={dimensions.columns} rowHeight="270px" >
           {channels.map((channel, i) => 

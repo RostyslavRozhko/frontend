@@ -2,21 +2,20 @@ import styled from 'styled-components'
 import colors from './colors'
 
 const Button = styled.button`
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3);
   background-color: ${colors.opacityWhiteLight};
   padding: 15px 45px;
   color: ${colors.white};
   font-size: 28px;
   border: none;
-  margin: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
-  width: 95%;
+  min-width: 500px;
 
   &:focus, &:hover {
     color: ${colors.black};
-    background-color: ${colors.opacityWhiteDarker};
-    width: 100%;
+    background-color: ${colors.almostWhite};
   }
 `
 

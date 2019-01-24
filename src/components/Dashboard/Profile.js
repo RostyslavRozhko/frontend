@@ -32,7 +32,7 @@ const Profile = (props) => {
   }
 
   const logout = async () => {
-    await userAPI.logout()
+    userAPI.logout()
     props.history.push('/')
   }
 

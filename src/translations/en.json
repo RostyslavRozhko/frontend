@@ -4,5 +4,7 @@
   "auth.youtPassword": "Your Password",
   "auth.signInWith": "Sign in with exising account",
   "auth.fillTheDataBelow": "Fill the data below",
-  "auth.forgotPassword": "Forgot Password?"
+  "auth.forgotPassword": "Forgot Password?",
+  "auth.forgotPasswordInfo": "If you have forgoten your password, please enter </br> your email and we will send you a link to reset it.",
+  "auth.restoreButton": "Restore Password"
 }

@@ -9,9 +9,9 @@ const login = (email, password) => {
 }
 
 const logout = () => {
+  localStorage.removeItem('authtoken')
   return fetch('GET', '/users/logout')
     .then(response => {
-      localStorage.removeItem('authtoken')
       return response.data
     })
     .catch(error => error.response.data)
@@ -21,13 +21,16 @@ const getUser = () => {
   return fetch('GET', '/users/show')
     .then(response => response.data)
     .then(data => data.user)
-    .catch(error => error.response.data)
 }
 
 const getPlan = () => {
   return fetch('GET', '/users/plan')
     .then(response => response.data)
-    .catch(error => error.response.data)
+}
+
+const resetPassword = (email) => {
+  return fetch('POST', '/users/reset', {email})
+    .then(response => response.data)
 }
 
 export default {
@@ -35,4 +38,5 @@ export default {
   logout,
   getUser,
   getPlan,
+  resetPassword,
 }

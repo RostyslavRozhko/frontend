@@ -4,7 +4,7 @@ import { space, fontWeight, fontSize } from 'styled-system'
 
 
 const H1 = styled.h1`
-  font-size: 28px;
+  font-size: 30px;
   color: ${colors.white};
   font-weight: normal;
   margin-top: 0;
@@ -14,7 +14,7 @@ const H1 = styled.h1`
 `
 
 const H2 = styled.h2`
-  font-size: 22px;
+  font-size: 20px;
   color: ${colors.opacityFontColor};
   font-weight: normal;
   margin-top: 0;

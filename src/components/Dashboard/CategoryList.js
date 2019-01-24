@@ -42,7 +42,7 @@ const CategoryList = (props) => {
 
   return (
     <Flex flexDirection="column">
-      <H2 mb="5px" mt="5px">{props.title}</H2>
+      <H2 fontSize="28px" mb="5px" mt="5px">{props.title}</H2>
       <Channel.Category ref={containerRef} >
         <HorizontalList style={{width, display: 'flex', alignItems: 'center'}} 
           onFocus={(index) => onFocus(index)}

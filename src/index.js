@@ -15,6 +15,8 @@ import Dashboard from './components/Dashboard/index'
 import Join from './components/Join/index'
 import Login from './components/Auth/Login'
 import Player from './components/Player'
+import ThanksPage from './components/Join/ThanksPage'
+import Forgot from './components/Auth/Forgot'
 
 import locale_en from 'react-intl/locale-data/en'
 import locale_uk from 'react-intl/locale-data/uk'
@@ -49,9 +51,11 @@ ReactDOM.render(
                 ? <Redirect to="/dashboard" />
                 : <Login />
             )} />
+            <Route path="/forgot" component={Forgot} />
             <PrivateRoute path="/dashboard/:id" component={Player} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/join" component={Join} />
+            <PrivateRoute path="/thanks" component={ThanksPage} />
           </Switch>
         </BrowserRouter>
       </ModalProvider>

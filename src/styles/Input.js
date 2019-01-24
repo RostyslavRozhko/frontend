@@ -4,12 +4,12 @@ import { space, width, height } from 'styled-system'
 
 const Input = styled.input`
   height: 60px;
-  min-width: 500px;
+  min-width: 450px;
   border-radius: 5px;
   background-color: ${colors.opacityWhiteLight};
   padding: 0 30px;
   font-size: 24px;
-  color: ${colors.opacityFontColor};
+  color: ${colors.white};
   border: none;
   text-align: center;
   ${space};
@@ -27,12 +27,12 @@ const Input = styled.input`
   }
 
   &::placeholder {
-    color: ${colors.opacityFontColor};
+    color: ${colors.white};
   }
 `
 
 const Button = styled.button`
-  min-width: 280px;
+  min-width: 300px;
   height: 60px;
   border-radius: 5px;
   background-color: ${colors.opacityWhiteLight};

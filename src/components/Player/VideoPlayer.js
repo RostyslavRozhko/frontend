@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import Player from '../../styles/Player'
@@ -8,14 +8,19 @@ import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
 import { ReactComponent as FullIcon } from '../../assets/full.svg'
 import { ReactComponent as NoFullIcon } from '../../assets/nofull.svg'
+import { ReactComponent as PIPIcon } from '../../assets/pip.svg'
 
 const VideoPlayer = (props) => {
   const video = useRef(null)
   const player = useRef(null)
-  const [playing, setPlaying] = useState(true)
+  const [playing, setPlaying] = useState(false)
   const [fullscreen, setFullscreen] = useState(false)
   const [volume, setVolume] = useState(100)
   const [muted, setMuted] = useState(false)
+  const [pip, setPIP] = useState(false)
+
+  const canPlayPIP = ReactPlayer.canEnablePIP(props.url)
+  console.log(canPlayPIP)
 
   const onReady = () => {
     props.stopLoading()
@@ -110,6 +115,9 @@ const VideoPlayer = (props) => {
           muted={muted}
           onError={handleError}
           onPlay={onPlay}
+          playsinline={true}
+          pip={pip}
+          onDisablePIP={() => setPIP(false)}
         />
         <Player.Controls>
           <Player.ButtonGroup>
@@ -119,7 +127,10 @@ const VideoPlayer = (props) => {
               <Player.Slider value={volume} onChange={handleVolume} type="range" min="0" max="100" />
             </Player.Volume>
           </Player.ButtonGroup>
-          <Player.Button onClick={handleFullscreen}>{fullscreen ? <NoFullIcon /> : <FullIcon />}</Player.Button>
+          <Player.ButtonGroup>
+            {canPlayPIP && <Player.Button onClick={() => setPIP(true)}><PIPIcon /></Player.Button>}
+            <Player.Button onClick={handleFullscreen}>{fullscreen ? <NoFullIcon /> : <FullIcon />}</Player.Button>
+          </Player.ButtonGroup>
         </Player.Controls>
       </Player>
     </>

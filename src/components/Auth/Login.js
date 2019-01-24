@@ -5,12 +5,13 @@ import FocusItem from '../FocusItem'
 import { withRouter } from "react-router";
 import { useModal } from '../Modal/useModal'
 import { FormattedMessage } from 'react-intl'
+import userApi from '../../api/userAPI'
+import PhoneNumber from '../PhoneNumber';
 
 import Input from '../../styles/Input'
 import Layout from '../../styles/Layout'
 import Text from '../../styles/Text'
 
-import userApi from '../../api/userAPI'
 
 const { Flex, Box } = Layout
 const { H1, H2 } = Text
@@ -23,7 +24,7 @@ const Login = (props) => {
     e.preventDefault()
     const {email, password} = formState.values
     await userApi.login(email, password)
-      .then(res => props.history.push('/dashboard'))
+      .then(res => console.log(res))
       .catch(err => showModal({
         title: 'Дані авторизації не вірні!',
         body: 'Будь ласка, повторіть спробу! Якщо Ви забули пароль - скористайтесь формою відновлення паролю.',
@@ -41,7 +42,7 @@ const Login = (props) => {
         </Flex>
           <form>
               <Flex flexDirection="column" alignItems="center">
-                <FocusItem forseFocus={true}>
+                <FocusItem forceFocus={true}>
                   <Input type="email" mb="10px" placeholder="Your email" {...email('email')} required  autoComplete="username" />
                 </FocusItem>
                 <FocusItem>
@@ -54,10 +55,9 @@ const Login = (props) => {
           </form>
         <Flex flexDirection="column" alignItems="center" justifyContent="space-around">
           <FocusItem>
-            <Input.Button width="100%" mb="20px"><FormattedMessage id="auth.forgotPassword"></FormattedMessage></Input.Button>
+            <Input.Button onClick={() => props.history.push('/forgot')} width="100%" mb="20px"><FormattedMessage id="auth.forgotPassword"></FormattedMessage></Input.Button>
           </FocusItem>
-          <Text sub fontSize="26px">Problems with signing in?</Text>
-          <Text sub fontSize="26px">(888) 720-0928</Text>
+          <PhoneNumber text="Problems with signing in?" />
         </Flex>
       </Flex>
     </VerticalList>

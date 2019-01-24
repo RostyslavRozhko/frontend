@@ -35,7 +35,7 @@ const ChannelsList = () => {
   }
 
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" mt="20px">
       {/* <BannerList /> */}
       <Channel.Container>
         {Object.keys(channelsWithCategories).map((category, i) =>

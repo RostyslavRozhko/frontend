@@ -3,6 +3,7 @@ import planAPI from '../../api/planAPI'
 import billingAPI from '../../api/billingAPI'
 import Package from './Package'
 import { HorizontalList } from '../../react-keys'
+import PhoneNumber from '../PhoneNumber';
 
 import Layout from '../../styles/Layout'
 import Text from '../../styles/Text'
@@ -38,10 +39,7 @@ const Join = (props) => {
           {packages && packages.map(pack => <Package key={pack.package_id} pack={pack} onClick={() => handleClick(pack)} />)}
         </HorizontalList>
       </Flex>
-      <Flex flexDirection="column" alignItems="center" justifyContent="space-around">
-        <Text sub fontSize="28px">Still Have Questions?</Text>
-        <Text sub fontSize="28px">(888) 720-0928</Text>
-      </Flex>
+      <PhoneNumber />
     </Flex>
   )
 }
